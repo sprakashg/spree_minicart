@@ -74,8 +74,13 @@ $(document).on('mouseleave', "#minicart", function(e)
       e.stopImmediatePropagation(); 
        e.preventDefault(); 
       $("#minicart").slideUp(100);
+    });
 
-
+$(document).on('mouseover', "#link-to-cart", function(e)
+    {
+      e.stopImmediatePropagation(); 
+       e.preventDefault(); 
+      $("#minicart").slideDown(100);
     });
 
 $(document).on('click', "body", function(e){
