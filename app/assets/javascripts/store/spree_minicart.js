@@ -7,7 +7,7 @@
     //$("#link-to-cart").hoverIntent( config )
 
     // hoverintent items created by js http://rndnext.blogspot.com/2009/02/jquery-live-and-plugins.html
-    $(document).on('mouseover', "ul#minicart-items li", function(e)
+    $("#link-to-cart").on('mouseover',function(e)
     {
       if (!$(this).data('init'))
       {
@@ -25,6 +25,7 @@
           }
         });
         $(this).trigger(e);
+
       }
     });
 
@@ -48,28 +49,40 @@
 
 $(document).on('mouseenter', "#link-to-cart", function(e)
     {
-
-    $("#minicart").slideDown();
+      e.stopImmediatePropagation();
+      e.preventDefault();
+      
+    $("#minicart").slideDown(100);
 
     });
 $(document).on('mouseleave', "#link-to-cart", function(e)
     {
-
-    $("#minicart").filter(":not(:animated)").slideUp();
+      e.stopImmediatePropagation();
+       e.preventDefault();
+    $("#minicart").filter(":not(:animated)").slideUp(100);
 
     });
 $(document).on('mouseenter', "#minicart", function(e)
     {
-      
-$("#minicart").show();
+      e.stopImmediatePropagation();
+       e.preventDefault();
+       $("#minicart").show();
 
     });
 $(document).on('mouseleave', "#minicart", function(e)
     {
-$("#minicart").slideUp();
+      e.stopImmediatePropagation(); 
+       e.preventDefault(); 
+      $("#minicart").slideUp(100);
+
 
     });
 
 $(document).on('click', "body", function(e){
-   $("#minicart").slideUp();
+   $("#minicart").slideUp(100);
 });
+
+$(document).on('mouseover',"ul#notification",function(e){
+    $("#minicart").hide();
+    $("#dropdown-menu").hide();
+})
